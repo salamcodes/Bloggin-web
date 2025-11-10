@@ -13,9 +13,8 @@ const postProfile = document.querySelector(".post-avatar");
 const posterName = document.querySelector("#post-author");
 const time = document.querySelector(".post-time");
 const blogContainer = document.querySelector("#blogPosts")
-const userPosts = []
+let userPosts = []
 let uploadedProfile;
-// let postProfile;
 let authorName;
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -30,11 +29,8 @@ onAuthStateChanged(auth, async (user) => {
         userName.textContent = authorName;
         const postInfo = await getData(uid, "posts")
         console.log(postInfo)
-        // postProfile.src = uploadedProfile;
         userPosts.push(...postInfo)
         render(userPosts)
-
-
 
     } else {
         logout.style.display = "none"
@@ -58,13 +54,16 @@ form.addEventListener("submit", async (event) => {
 
     try {
         const docRef = await addDoc(collection(db, "posts"), postData);
+        userPosts.push({ ...userPosts })
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
+    render(userPosts)
 })
 
 async function getData(uid, collections) {
+    userPosts = []
     let data = []
     const q = query(collection(db, collections),
         where("uid", "==", uid));
