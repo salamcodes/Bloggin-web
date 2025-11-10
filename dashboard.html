@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlogHub | Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="./styles/dashboard.css">
-   
+    <link rel="stylesheet" href="./styles/dashboard.css">
+
 </head>
+
 <body>
     <!-- Navigation Bar -->
-   <nav class="navbar">
-    <div class="logo">BlogHub</div>
-    <div class="nav-user">
-        <div class="user-info">
-            <span class="user-name">Alex Johnson</span>
-            <img src="" alt="User Avatar" class="user-avatar">
+    <nav class="navbar">
+        <div class="logo">BlogHub</div>
+        <div class="nav-user">
+            <div class="user-info">
+                <span class="user-name"></span>
+                <img src="" alt="User Avatar" class="user-avatar">
+            </div>
+            <button class="login-btn" id="logout">Logout</button>
+            <button class="login-btn" id="login">Login</button>
         </div>
-        <button class="login-btn" id="logout">Logout</button>
-        <button class="login-btn" id="login">Login</button>
-    </div>
-</nav>
+    </nav>
 
     <!-- Main Content -->
     <div class="container">
@@ -32,12 +34,12 @@
                     <label for="topic">Topic</label>
                     <input type="text" id="topic" placeholder="What's your blog about?" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="content">What's on your mind?</label>
                     <textarea id="content" placeholder="Share your thoughts, ideas, or stories..." required></textarea>
                 </div>
-                
+
                 <button type="submit" class="post-btn">Publish Post</button>
             </form>
         </div>
@@ -53,7 +55,7 @@
         <!-- Blog Posts -->
         <div class="blog-posts" id="blogPosts">
             <!-- Sample Blog Post -->
-            <div class="blog-post">
+            <!-- <div class="blog-post">
                 <div class="post-header">
                     <div class="post-avatar">AJ</div>
                     <div class="post-user-info">
@@ -72,10 +74,10 @@
                     <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
                     <button class="action-btn"><i class="far fa-share-square"></i> Share</button>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Another Sample Blog Post -->
-            <div class="blog-post">
+            <!-- <div class="blog-post">
                 <div class="post-header">
                     <div class="post-avatar">AJ</div>
                     <div class="post-user-info">
@@ -94,11 +96,12 @@
                     <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
                     <button class="action-btn"><i class="far fa-share-square"></i> Share</button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
 
-       <script type="module" src="./scripts/dashboard.js"></script>
+    <script type="module" src="./scripts/dashboard.js"></script>
 </body>
+
 </html>
