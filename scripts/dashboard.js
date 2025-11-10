@@ -54,11 +54,13 @@ form.addEventListener("submit", async (event) => {
 
     try {
         const docRef = await addDoc(collection(db, "posts"), postData);
-        userPosts.push({ ...userPosts })
+        userPosts.push({ ...postData })
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
+    topic.value = "";
+    content.value = "";
     render(userPosts)
 })
 
@@ -84,7 +86,7 @@ logout.addEventListener("click", () => {
         window.location = "login.html"
 
     }).catch((error) => {
-
+console.log(error)
     });
 })
 

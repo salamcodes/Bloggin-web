@@ -42,7 +42,7 @@ form.addEventListener("submit", (event) => {
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
-            // window.location = "login.html"
+            window.location = "login.html"
         })
         .catch((error) => {
 
