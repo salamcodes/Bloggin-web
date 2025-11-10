@@ -15,6 +15,7 @@ form.addEventListener("submit", (event) => {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
+            window.location = "dashboard.html"
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -33,6 +34,7 @@ googleBtn.addEventListener("click", () => {
             // The signed-in user info.
             const user = result.user;
             console.log(token, user)
+            window.location = "dashboard.html"
         }).catch((error) => {
             
             const errorMessage = error.message;

@@ -10,23 +10,24 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">BlogHub</div>
-        <div class="nav-user">
-            <div class="user-info">
-                <span class="user-name">Alex Johnson</span>
-                <div class="user-avatar">AJ</div>
-            </div>
-            <button class="login-btn">Logout</button>
+   <nav class="navbar">
+    <div class="logo">BlogHub</div>
+    <div class="nav-user">
+        <div class="user-info">
+            <span class="user-name">Alex Johnson</span>
+            <img src="" alt="User Avatar" class="user-avatar">
         </div>
-    </nav>
+        <button class="login-btn" id="logout">Logout</button>
+        <button class="login-btn" id="login">Login</button>
+    </div>
+</nav>
 
     <!-- Main Content -->
     <div class="container">
         <!-- Blog Creation Form -->
         <div class="blog-form">
             <h2 style="margin-bottom: 20px; color: #333;">Create New Post</h2>
-            <form id="blogForm">
+            <form id="form">
                 <div class="form-group">
                     <label for="topic">Topic</label>
                     <input type="text" id="topic" placeholder="What's your blog about?" required>
@@ -97,105 +98,7 @@
         </div>
     </div>
 
-    <!-- <script>
-        // Blog posting functionality
-        document.getElementById('blogForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const topic = document.getElementById('topic').value;
-            const content = document.getElementById('content').value;
-            
-            // Create new blog post
-            createBlogPost(topic, content);
-            
-            // Reset form
-            this.reset();
-        });
 
-        // All Blogs button functionality
-        document.getElementById('allBlogsBtn').addEventListener('click', function() {
-            alert('Redirecting to all blogs page...');
-            // In a real application, this would navigate to the all blogs page
-            console.log('All Blogs button clicked');
-        });
-
-        function createBlogPost(topic, content) {
-            const blogPosts = document.getElementById('blogPosts');
-            
-            // Create new post element
-            const postElement = document.createElement('div');
-            postElement.className = 'blog-post';
-            
-            // Get current time
-            const now = new Date();
-            const timeString = getTimeAgo(now);
-            
-            // Post HTML structure
-            postElement.innerHTML = `
-                <div class="post-header">
-                    <div class="post-avatar">AJ</div>
-                    <div class="post-user-info">
-                        <div class="post-author">Alex Johnson</div>
-                        <div class="post-time">Just now</div>
-                    </div>
-                </div>
-                <h3 class="post-topic">${topic}</h3>
-                <p class="post-content">${content}</p>
-                <div class="post-actions">
-                    <button class="action-btn"><i class="far fa-heart"></i> Like</button>
-                    <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
-                    <button class="action-btn"><i class="far fa-share-square"></i> Share</button>
-                </div>
-            `;
-            
-            // Add the new post at the top
-            blogPosts.insertBefore(postElement, blogPosts.firstChild);
-            
-            // Update time after a moment to show "Just now"
-            setTimeout(() => {
-                postElement.querySelector('.post-time').textContent = timeString;
-            }, 100);
-        }
-
-        // Helper function to format time
-        function getTimeAgo(date) {
-            const now = new Date();
-            const diffMs = now - date;
-            const diffMins = Math.floor(diffMs / 60000);
-            const diffHours = Math.floor(diffMs / 3600000);
-            const diffDays = Math.floor(diffMs / 86400000);
-            
-            if (diffMins < 1) return 'Just now';
-            if (diffMins < 60) return `${diffMins} minute${diffMins > 1 ? 's' : ''} ago`;
-            if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
-            if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
-            
-            return date.toLocaleDateString();
-        }
-
-        // Add interaction to action buttons
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('action-btn') || 
-                e.target.parentElement.classList.contains('action-btn')) {
-                
-                const btn = e.target.classList.contains('action-btn') ? 
-                           e.target : e.target.parentElement;
-                
-                if (btn.querySelector('.fa-heart')) {
-                    const icon = btn.querySelector('.fa-heart');
-                    if (icon.classList.contains('far')) {
-                        icon.classList.remove('far');
-                        icon.classList.add('fas');
-                        icon.style.color = '#e74c3c';
-                    } else {
-                        icon.classList.remove('fas');
-                        icon.classList.add('far');
-                        icon.style.color = '';
-                    }
-                }
-            }
-        });
-    </script> -->
+       <script type="module" src="./scripts/dashboard.js"></script>
 </body>
 </html>
