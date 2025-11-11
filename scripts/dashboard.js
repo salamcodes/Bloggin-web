@@ -82,7 +82,7 @@ async function getData(uid, collections) {
 }
 
 logout.addEventListener("click", () => {
-    console.log("clicked")
+    // console.log("clicked")
     signOut(auth).then(() => {
         window.location = "login.html"
 

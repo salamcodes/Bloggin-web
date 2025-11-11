@@ -25,10 +25,20 @@ onAuthStateChanged(auth, async (user) => {
 
     } else {
         logout.style.display = "none"
-        window.location = "login.html"
+        // window.location = "login.html"
         logout.style.display = "none"
     }
 });
+logout.addEventListener("click", () => {
+    signOut(auth).then(() => {
+        window.location = "login.html"
+
+    }).catch((error) => {
+        console.log(error);
+        navProfile.style.display = "none";
+        userName.style.display = "none"
+    });
+})
 
 
 async function getData(uid, collections) {
@@ -76,4 +86,7 @@ function render(arr) {
                 </div>
             </div>`
     })
-}
+};
+backBtn.addEventListener("click", () => {
+    window.location = "dashboard.html"
+})
