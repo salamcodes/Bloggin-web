@@ -6,6 +6,7 @@ const logout = document.querySelector("#logout");
 const login = document.querySelector("#login");
 const userName = document.querySelector(".user-name");
 const blogContainer = document.querySelector("#allBlogsGrid");
+const backBtn = document.querySelector(".back-btn");
 let allPosts = [];
 
 onAuthStateChanged(auth, async (user) => {

@@ -120,6 +120,6 @@ function render(arr) {
 };
 
 allBlogs.addEventListener("click",()=>{
-    window.location = "blogs.html"
+    window.location = "index.html"
 })
 
