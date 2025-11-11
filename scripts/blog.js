@@ -15,12 +15,12 @@ onAuthStateChanged(auth, async (user) => {
         let profile = userInfo[0].profile;
         navProfile.src = profile
         userName.textContent = userInfo[0].fullName;
-        console.log(userInfo);
+        // console.log(userInfo);
         login.style.display = "none"
         const posts = await getData(null, "posts");
         allPosts.push(...posts)
         render(allPosts)
-        console.log(posts)
+        // console.log(posts)
 
     } else {
         logout.style.display = "none"
@@ -40,7 +40,7 @@ async function getData(uid, collections) {
     querySnapshot.forEach((doc) => {
         // console.log(`${doc.id} => ${doc.data()}`);
         data.push({ ...doc.data(), docId: doc.id })
-        
+
     });
     render(data)
     return data;
