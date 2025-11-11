@@ -18,17 +18,25 @@ onAuthStateChanged(auth, async (user) => {
         userName.textContent = userInfo[0].fullName;
         // console.log(userInfo);
         login.style.display = "none"
-        const posts = await getData(null, "posts");
-        allPosts.push(...posts)
-        render(allPosts)
+        posts()
+
         // console.log(posts)
 
     } else {
         logout.style.display = "none"
         // window.location = "login.html"
-        logout.style.display = "none"
+
     }
 });
+
+async function posts() {
+    allPosts = []
+    const posts = await getData(null, "posts");
+    allPosts.push(...posts)
+    render(allPosts)
+}
+posts()
+
 logout.addEventListener("click", () => {
     signOut(auth).then(() => {
         window.location = "login.html"
@@ -89,4 +97,8 @@ function render(arr) {
 };
 backBtn.addEventListener("click", () => {
     window.location = "dashboard.html"
-})
+});
+login.addEventListener("click", () => {
+    window.location = "login.html"
+    console.log("clicked")
+});
