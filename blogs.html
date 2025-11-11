@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogHub | All Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/blog.css">
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">BlogHub</div>
+        <div class="nav-user">
+            <div class="user-info">
+                <span class="user-name">Alex Johnson</span>
+                <img src="" class="user-avatar">
+            </div>
+            <button class="login-btn" id="logout">Logout</button>
+            <button class="login-btn" id="login">Login</button>
+        </div>
+    </nav>
+
+    <!-- Fixed Back Button -->
+    <div class="fixed-back-btn">
+        <a href="#" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Dashboard
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Explore All Blogs</h1>
+            <p class="page-subtitle">Discover amazing content from our community of writers and thinkers</p>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="search-filter">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search blogs..." id="searchInput">
+            </div>
+            <select class="filter-select" id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="technology">Technology</option>
+                <option value="design">Design</option>
+                <option value="lifestyle">Lifestyle</option>
+                <option value="business">Business</option>
+                <option value="education">Education</option>
+            </select>
+            <select class="filter-select" id="sortFilter">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="popular">Most Popular</option>
+            </select>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="blog-posts-grid" id="allBlogsGrid">
+            
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more">
+            <button class="load-more-btn" id="loadMoreBtn">Load More Blogs</button>
+        </div>
+    </div>
+    <script type="module" src="./scripts/blog.js"></script>
+
+    <!-- <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const blogPosts = document.querySelectorAll('.blog-post');
+            
+            blogPosts.forEach(post => {
+                const topic = post.querySelector('.post-topic').textContent.toLowerCase();
+                const content = post.querySelector('.post-content').textContent.toLowerCase();
+                const author = post.querySelector('.post-author').textContent.toLowerCase();
+                
+                if (topic.includes(searchTerm) || content.includes(searchTerm) || author.includes(searchTerm)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        document.getElementById('categoryFilter').addEventListener('change', function(e) {
+            const selectedCategory = e.target.value;
+            const blogPosts = document.querySelectorAll('.blog-post');
+            
+            blogPosts.forEach(post => {
+                if (!selectedCategory || post.getAttribute('data-category') === selectedCategory) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+
+        // Sort functionality
+        document.getElementById('sortFilter').addEventListener('change', function(e) {
+            const sortBy = e.target.value;
+            alert(`Sorting by: ${sortBy}`);
+            // In a real application, this would reorder the posts
+        });
+
+        // Load more functionality
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            alert('Loading more blogs...');
+            // In a real application, this would fetch more posts from the server
+        });
+
+        // Like functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('action-btn') || 
+                e.target.parentElement.classList.contains('action-btn')) {
+                
+                const btn = e.target.classList.contains('action-btn') ? 
+                           e.target : e.target.parentElement;
+                
+                if (btn.querySelector('.fa-heart')) {
+                    const icon = btn.querySelector('.fa-heart');
+                    const stat = btn.closest('.post-actions').querySelector('.stat .fa-heart').parentElement;
+                    let count = parseInt(stat.textContent.trim()) || 0;
+                    
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = '#e74c3c';
+                        stat.innerHTML = `<i class="fas fa-heart"></i> ${count + 1}`;
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                        stat.innerHTML = `<i class="far fa-heart"></i> ${count - 1}`;
+                    }
+                }
+            }
+        });
+
+        // Blog post click functionality
+        document.querySelectorAll('.blog-post').forEach(post => {
+            post.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('action-btn') && 
+                    !e.target.parentElement.classList.contains('action-btn')) {
+                    const topic = this.querySelector('.post-topic').textContent;
+                    const author = this.querySelector('.post-author').textContent;
+                    alert(`Opening blog: "${topic}" by ${author}`);
+                }
+            });
+        });
+    </script> -->
+</body>
+</html>

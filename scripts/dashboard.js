@@ -8,6 +8,7 @@ const logout = document.querySelector("#logout");
 const topic = document.querySelector("#topic");
 const content = document.querySelector("#content");
 const form = document.querySelector("#form");
+const allBlogs = document.querySelector("#allBlogsBtn");
 
 const postProfile = document.querySelector(".post-avatar");
 const posterName = document.querySelector("#post-author");
@@ -116,5 +117,9 @@ function render(arr) {
                 </div>
             </div>`
     })
-}
+};
+
+allBlogs.addEventListener("click",()=>{
+    window.location = "blogs.html"
+})
 
