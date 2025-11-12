@@ -15,9 +15,9 @@ onAuthStateChanged(auth, async (user) => {
     if (user) {
 
         const uid = user.uid;
-        console.log(uid)
+        // console.log(uid)
         const userInfo = await getData(uid, "users");
-        console.log(userInfo);
+        // console.log(userInfo);
         profile.src = userInfo[0].profile;
         fullName.textContent = userInfo[0].fullName;
         email.textContent = userInfo[0].email
@@ -49,11 +49,11 @@ document.querySelector("#dashboard").addEventListener("click", () => {
     window.location = "dashboard.html"
 })
 
-saveBtn.addEventListener("click" ,()=>{
-    currentPass = currentPass.value ;
+saveBtn.addEventListener("click", () => {
+    currentPass = currentPass.value;
     newPass = newPass.value;
-    confirmPass = confirmPass.value ;
-    console.log(currentPass , newPass , confirmPass)
+    confirmPass = confirmPass.value;
+    // console.log(currentPass, newPass, confirmPass)
 
     changeUserPassword(currentPass, newPass, confirmPass);
 })
@@ -83,7 +83,7 @@ async function changeUserPassword(currentPass, newPass, confirmPass) {
 
         alert("Password updated successfully!");
     } catch (error) {
-        console.error(error);
+        alert(error)
     }
     window.location = "login.html"
 }
