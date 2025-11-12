@@ -122,4 +122,6 @@ function render(arr) {
 allBlogs.addEventListener("click",()=>{
     window.location = "index.html"
 })
-
+userProfile.addEventListener("click" ,()=>{
+    window.location = "profile.html"
+})

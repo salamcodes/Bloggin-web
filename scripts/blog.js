@@ -102,3 +102,7 @@ login.addEventListener("click", () => {
     window.location = "login.html"
     console.log("clicked")
 });
+
+navProfile.addEventListener("click" ,()=>{
+    window.location = "profile.html"
+})
