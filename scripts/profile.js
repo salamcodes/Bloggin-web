@@ -38,4 +38,9 @@ async function getData(uid, collections) {
     return data
 
 }
-
+document.querySelector("#home").addEventListener("click" ,()=>{
+    window.location = "index.html"
+})
+document.querySelector("#dashboard").addEventListener("click" ,()=>{
+    window.location = "dashboard.html"
+})
