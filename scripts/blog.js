@@ -108,6 +108,7 @@ function render(arr) {
         btn.addEventListener("click", (e) => {
             const uid = e.target.dataset.id;
             localStorage.setItem("userId", uid)
+            window.location = "userposts.html"
         });
     });
 

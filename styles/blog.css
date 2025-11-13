@@ -308,31 +308,8 @@
             gap: 5px;
         }
 
-        /* Responsive improvements */
-        @media (max-width: 600px) {
-            .post-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+       
 
-            .see-all-btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .stats {
-                margin-left: 0;
-                width: 100%;
-                justify-content: flex-start;
-            }
-        }
-
-
-        /* Responsive improvements */
-
-
-
-        /* Load More Button */
         .load-more {
             text-align: center;
             margin: 40px 0;

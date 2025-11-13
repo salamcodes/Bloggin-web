@@ -32,6 +32,48 @@ async function arrivedData() {
     email.textContent = userInfo[0].email;
     const postInfo = await getData(userId, "posts");
 
-    posts.push(...data);
+    posts.push(...postInfo);
+
+    render(posts)
 }
 arrivedData()
+
+function render(arr) {
+    container.innerHTML = "";
+
+
+    arr.forEach((item) => {
+        const postTime = item.time?.toDate
+            ? item.time.toDate().toLocaleString()
+            : item.time;
+        container.innerHTML += `<div class="blog-post">
+            <div class="post-header">
+                <img src="${item.authorProfile}" class="post-avatar">
+                <div class="post-user-info">
+                    <div class="post-author">${item.authorName}</div>
+                    <div class="post-time">${postTime}</div>
+                </div>
+            </div>
+
+            <h3 class="post-topic">${item.topic}</h3>
+            <p class="post-content">${item.content}</p>
+
+            <div class="post-actions">
+                <button class="action-btn"><i class="far fa-heart"></i> Like</button>
+                <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
+                <button class="action-btn"><i class="far fa-share-square"></i> Share</button>
+                <div class="stats">
+                    <div class="stat"><i class="far fa-heart"></i> 42</div>
+                    <div class="stat"><i class="far fa-comment"></i> 15</div>
+                </div>
+            </div>
+        </div>`
+    })
+}
+
+document.querySelector("#home").addEventListener("click", () => {
+    window.location = "index.html"
+})
+document.querySelector("#dashboard").addEventListener("click", () => {
+    window.location = "dashboard.html"
+})

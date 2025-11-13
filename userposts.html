@@ -75,52 +75,108 @@
             gap: 20px;
         }
 
-        .post-card {
-            background: var(--card-bg);
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        .blog-post {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
-        .post-card:hover {
+        .blog-post:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .post-header {
             display: flex;
             align-items: center;
+            margin-bottom: 15px;
             gap: 12px;
-            margin-bottom: 12px;
         }
 
-        .post-header img {
-            width: 40px;
-            height: 40px;
+        .post-avatar {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent);
         }
 
-        .post-header .user-name {
+        .post-user-info {
+            flex: 1;
+        }
+
+        .post-author {
             font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--accent);
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .post-time {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .post-topic {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .post-content {
-            color: #374151;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .post-img {
-            width: 100%;
-            height: 180px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-top: 10px;
+        .post-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            align-items: center;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #777;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            color: var(--accent);
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         /* Fixed Buttons */
@@ -155,6 +211,18 @@
                 padding: 20px 15px 120px;
             }
 
+            .posts-container {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-post {
+                padding: 20px;
+            }
+
+            #name {
+                display: none;
+            }
+
             .fixed-buttons {
                 position: relative;
                 bottom: auto;
@@ -168,31 +236,23 @@
 </head>
 
 <body>
+    <!-- User Profile Header -->
     <div class="user-header">
         <img id="userProfile" src="" alt="User Profile" />
         <h2 id="name">John Doe</h2>
         <p id="email">@johndoe</p>
     </div>
 
+    <!-- Posts Grid -->
     <div class="posts-container">
-        <div class="post-card">
-            <div class="post-header">
-                <img src="" alt="User" />
-                <span class="user-name">John Doe</span>
-            </div>
-            <div class="post-content">
-                Just finished working on a new web app using Firebase and React! 🚀
-            </div>
-            
-        </div>
+        
     </div>
 
     <!-- Fixed Buttons -->
     <div class="fixed-buttons">
-        <button class="fixed-btn"><i class="fas fa-home"></i> Back to Home</button>
-        <button class="fixed-btn"><i class="fas fa-chart-line"></i> Back to Dashboard</button>
+        <button id="home" class="fixed-btn"><i class="fas fa-home"></i> Back to Home</button>
+        <button id="dashboard" class="fixed-btn"><i class="fas fa-chart-line"></i> Back to Dashboard</button>
     </div>
-
 
     <script type="module" src="./scripts/user.js"></script>
 </body>
