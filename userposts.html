@@ -169,26 +169,22 @@
 
 <body>
     <div class="user-header">
-        <img src="https://via.placeholder.com/150" alt="User Profile" />
-        <h2>John Doe</h2>
-        <p>@johndoe</p>
+        <img id="userProfile" src="" alt="User Profile" />
+        <h2 id="name">John Doe</h2>
+        <p id="email">@johndoe</p>
     </div>
 
     <div class="posts-container">
         <div class="post-card">
             <div class="post-header">
-                <img src="https://via.placeholder.com/150" alt="User" />
+                <img src="" alt="User" />
                 <span class="user-name">John Doe</span>
             </div>
             <div class="post-content">
                 Just finished working on a new web app using Firebase and React! 🚀
             </div>
-            <img class="post-img" src="https://via.placeholder.com/400x200" alt="Post Image" />
+            
         </div>
-
-
-
-
     </div>
 
     <!-- Fixed Buttons -->
@@ -196,6 +192,9 @@
         <button class="fixed-btn"><i class="fas fa-home"></i> Back to Home</button>
         <button class="fixed-btn"><i class="fas fa-chart-line"></i> Back to Dashboard</button>
     </div>
+
+
+    <script type="module" src="./scripts/user.js"></script>
 </body>
 
 </html>
