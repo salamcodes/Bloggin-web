@@ -104,6 +104,13 @@ function render(arr) {
     `;
     });
 
+    document.querySelectorAll(".see-all-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            const uid = e.target.dataset.id;
+            localStorage.setItem("userId", uid)
+        });
+    });
+
 };
 backBtn.addEventListener("click", () => {
     window.location = "dashboard.html"
