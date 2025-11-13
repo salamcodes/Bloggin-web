@@ -68,11 +68,11 @@ async function getData(uid, collections) {
 function render(arr) {
     blogContainer.innerHTML = ""
     arr.forEach((item) => {
-    const postTime = item.time?.toDate
-        ? item.time.toDate().toLocaleString()
-        : item.time;
+        const postTime = item.time?.toDate
+            ? item.time.toDate().toLocaleString()
+            : item.time;
 
-    blogContainer.innerHTML += `
+        blogContainer.innerHTML += `
         <div class="blog-post" data-category="technology">
             <div class="post-header">
                 <img src="${item.authorProfile}" alt="${item.authorName}" class="post-avatar">
@@ -85,11 +85,16 @@ function render(arr) {
             <p class="post-content">
                 ${item.content}
             </p>
+
+            
+            <div class="see-all-container">
+                <button class="see-all-btn" data-id=${item.uid}>See all from ${item.authorName}</button>
+            </div>
+
             <div class="post-actions">
-                <button class="see-all-btn">See all from ${item.authorName}</button>
                 <button class="action-btn"><i class="far fa-heart"></i> Like</button>
                 <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
-               
+                <button class="action-btn"><i class="far fa-share-square"></i> Share</button>
                 <div class="stats">
                     <div class="stat"><i class="far fa-heart"></i> 42</div>
                     <div class="stat"><i class="far fa-comment"></i> 15</div>
@@ -97,7 +102,7 @@ function render(arr) {
             </div>
         </div>
     `;
-});
+    });
 
 };
 backBtn.addEventListener("click", () => {
@@ -108,6 +113,6 @@ login.addEventListener("click", () => {
     console.log("clicked")
 });
 
-navProfile.addEventListener("click" ,()=>{
+navProfile.addEventListener("click", () => {
     window.location = "profile.html"
-})
+});

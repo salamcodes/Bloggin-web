@@ -246,6 +246,29 @@
             overflow: hidden;
         }
 
+        /* 👇 Container for See All button */
+        .see-all-container {
+            margin-bottom: 15px;
+        }
+
+        /* 👇 Button style */
+        .see-all-btn {
+            background: linear-gradient(90deg, #764ba2, #667eea);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .see-all-btn:hover {
+            background: linear-gradient(90deg, #5a3a87, #556de6);
+            transform: translateY(-2px);
+        }
+
         .post-actions {
             display: flex;
             flex-wrap: wrap;
@@ -285,23 +308,25 @@
             gap: 5px;
         }
 
-        /* 🌟 New Button Style */
-        .see-all-btn {
-            background: linear-gradient(90deg, #764ba2, #667eea);
-            color: white;
-            border: none;
-            padding: 7px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background 0.3s ease, transform 0.2s ease;
+        /* Responsive improvements */
+        @media (max-width: 600px) {
+            .post-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .see-all-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
         }
 
-        .see-all-btn:hover {
-            background: linear-gradient(90deg, #5a3a87, #556de6);
-            transform: translateY(-2px);
-        }
 
         /* Responsive improvements */
 
@@ -379,9 +404,9 @@
                 text-align: center;
             }
 
-            /* .stats {
+            .stats {
                 margin-left: 0;
                 width: 100%;
                 justify-content: flex-start;
-            } */
+            }
         }
