@@ -68,32 +68,37 @@ async function getData(uid, collections) {
 function render(arr) {
     blogContainer.innerHTML = ""
     arr.forEach((item) => {
-        const postTime = item.time?.toDate
-            ? item.time.toDate().toLocaleString()
-            : item.time;
-        blogContainer.innerHTML += ` <div class="blog-post" data-category="technology">
-                <div class="post-header">
-                    <img src="${item.authorProfile}" alt="Sarah Miller" class="post-avatar">
-                    <div class="post-user-info">
-                        <div class="post-author">${item.authorName}</div>
-                        <div class="post-time">${postTime}</div>
-                    </div>
+    const postTime = item.time?.toDate
+        ? item.time.toDate().toLocaleString()
+        : item.time;
+
+    blogContainer.innerHTML += `
+        <div class="blog-post" data-category="technology">
+            <div class="post-header">
+                <img src="${item.authorProfile}" alt="${item.authorName}" class="post-avatar">
+                <div class="post-user-info">
+                    <div class="post-author">${item.authorName}</div>
+                    <div class="post-time">${postTime}</div>
                 </div>
-                <h3 class="post-topic">${item.topic}</h3>
-                <p class="post-content">
-                    ${item.content}
-                </p>
-                <div class="post-actions">
-                    <button class="action-btn"><i class="far fa-heart"></i> Like</button>
-                    <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
-                    <button class="action-btn"><i class="far fa-share-square"></i> Share</button>
-                    <div class="stats">
-                        <div class="stat"><i class="far fa-heart"></i> 42</div>
-                        <div class="stat"><i class="far fa-comment"></i> 15</div>
-                    </div>
+            </div>
+            <h3 class="post-topic">${item.topic}</h3>
+            <p class="post-content">
+                ${item.content}
+            </p>
+            <div class="post-actions">
+                <button class="see-all-btn">See all from ${item.authorName}</button>
+                <button class="action-btn"><i class="far fa-heart"></i> Like</button>
+                <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
+               
+                <div class="stats">
+                    <div class="stat"><i class="far fa-heart"></i> 42</div>
+                    <div class="stat"><i class="far fa-comment"></i> 15</div>
                 </div>
-            </div>`
-    })
+            </div>
+        </div>
+    `;
+});
+
 };
 backBtn.addEventListener("click", () => {
     window.location = "dashboard.html"
