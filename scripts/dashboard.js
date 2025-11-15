@@ -1,5 +1,5 @@
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js"
-import { collection, addDoc, Timestamp, getDocs, query, where } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js"
+import { collection, addDoc, updateDoc, Timestamp, getDocs, query, where, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js"
 import { auth, db } from "./firebaseconfig.js";
 const userName = document.querySelector(".user-name");
 const userProfile = document.querySelector(".user-avatar");
@@ -87,7 +87,7 @@ logout.addEventListener("click", () => {
         window.location = "login.html"
 
     }).catch((error) => {
-console.log(error)
+        console.log(error)
     });
 })
 
@@ -105,11 +105,15 @@ function render(arr) {
                         <div class="post-author">${item.authorName}</div>
                         <div class="post-time">${postTime}</div>
                     </div>
+                    <div class="post-actions-buttons">
+                        <button class="edit-btn" data-id=${item.docId}><i class="fas fa-edit"></i> Edit</button>
+                        <button class="delete-btn" data-id=${item.docId}><i class="fas fa-trash"></i> Delete</button>
+                    </div>
                 </div>
                 <h3 class="post-topic">${item.topic}</h3>
                 <p class="post-content">
-                    ${item.content}
-                </p>
+                ${item.content}
+                    </p>
                 <div class="post-actions">
                     <button class="action-btn"><i class="far fa-heart"></i> Like</button>
                     <button class="action-btn"><i class="far fa-comment"></i> Comment</button>
@@ -117,11 +121,32 @@ function render(arr) {
                 </div>
             </div>`
     })
+    const delBtn = document.querySelectorAll(".delete-btn");
+    delBtn.forEach((btn) => {
+
+        btn.addEventListener("click", async (e) => {
+            const clickedId = e.target.dataset.id;
+            console.log(clickedId)
+            try {
+                await deleteDoc(doc(db, "posts", clickedId));
+                let indexOfItem = userPosts.findIndex((item) => {
+                    item.docId === clickedId
+                });
+                userPosts.splice(indexOfItem, 1);
+                render(userPosts)
+            } catch (error) {
+                alert("Error Occured")
+            }
+        })
+    });
+    
 };
 
-allBlogs.addEventListener("click",()=>{
+allBlogs.addEventListener("click", () => {
     window.location = "index.html"
 })
-userProfile.addEventListener("click" ,()=>{
+userProfile.addEventListener("click", () => {
     window.location = "profile.html"
-})
+});
+
+

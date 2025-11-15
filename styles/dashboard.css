@@ -252,6 +252,48 @@ textarea {
     color: #764ba2;
 }
 
+/* Post Action Buttons */
+.post-actions-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.edit-btn {
+    color: #667eea;
+    border: 1px solid #667eea;
+}
+
+.edit-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.delete-btn:hover {
+    background: #e74c3c;
+    color: white;
+    transform: translateY(-1px);
+}
+
 /* Empty State */
 .empty-state {
     text-align: center;
@@ -284,5 +326,15 @@ textarea {
 
     .user-name {
         display: none;
+    }
+
+    .post-actions-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .edit-btn, .delete-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
     }
 }
