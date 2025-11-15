@@ -6,6 +6,7 @@ const form = document.querySelector("#form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const fullName = document.querySelector("#fullName");
+const regBtn = document.querySelector("#register-btn");
 
 let uploadImg;
 var myWidget = cloudinary.createUploadWidget({
@@ -25,6 +26,7 @@ document.getElementById("upload_widget").addEventListener("click", function () {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    regBtn.innerHTML = "Loading..."
     createUserWithEmailAndPassword(auth, email.value, password.value)
         .then(async (userCredential) => {
             // Signed up 

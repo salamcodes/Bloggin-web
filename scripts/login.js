@@ -4,11 +4,13 @@ import { auth, provider } from "./firebaseconfig.js";
 const form = document.querySelector("#form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
+const login = document.querySelector(".login-btn");
 
 const googleBtn = document.querySelector("#googleSignIn");
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    login.innerHTML = "Loading..."
 
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {

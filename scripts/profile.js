@@ -26,7 +26,7 @@ onAuthStateChanged(auth, async (user) => {
 
 
     } else {
-        window.location = ""
+        window.location = "index.html"
     }
 });
 
