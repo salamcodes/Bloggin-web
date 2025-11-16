@@ -139,7 +139,15 @@ function render(arr) {
             }
         })
     });
-    
+    // const editBtn = document.querySelector(".edit-btn");
+    // editBtn.forEach((btn)=>{
+    //     btn.addEventListener("click",(e)=>{
+    //         const docId = e.target.dataset.id
+    //         // updatePost(docId)
+    //         console.log(docId)
+    //     })
+    // })
+
 };
 
 allBlogs.addEventListener("click", () => {
@@ -150,3 +158,22 @@ userProfile.addEventListener("click", () => {
 });
 
 
+// async function updatePost(docId) {
+//     let index = userPosts.find((item) => {
+//         return item.docId === docId
+//     })
+//     let newTopic = prompt("Enter updated topic", index.topic);
+//     let newContent = prompt("Enter updated content", index.content);
+
+//     const docRef = doc(db, "posts", docId);
+
+
+//     await updateDoc(docRef, {
+//         topic: newTopic,
+//         content: newContent
+//     });
+
+//     userPosts[index].topic = newTopic
+//     userPosts[index].content = newContent
+
+// }
